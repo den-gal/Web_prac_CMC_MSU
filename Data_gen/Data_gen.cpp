@@ -53,9 +53,9 @@ int main()
     std::uniform_int_distribution<> distrib_3(0, 5); // addit_dev and order_status
     std::uniform_int_distribution<> distrib_4(0, 4); // engine_volume
     std::uniform_int_distribution<> distrib_5(0, 8); // engine_power
-    std::uniform_int_distribution<> distrib_6(1, 1000); // client_ids 
-    std::uniform_int_distribution<> distrib_7(1, 2000); // order_ids
-    std::uniform_int_distribution<> distrib_8(1, 3000); // car_ids 
+    std::uniform_int_distribution<> distrib_6(0, 999); // client_ids 
+    std::uniform_int_distribution<> distrib_7(0, 1999); // order_ids
+    std::uniform_int_distribution<> distrib_8(0, 2999); // car_ids 
     std::uniform_int_distribution<> distrib_9(1000000, 10000000); // price and mileage
     std::uniform_int_distribution<> distrib_10(0, 1); // testdrive and number_of_doors
     std::uniform_int_distribution<> distrib_11(1, 28); // day
@@ -68,27 +68,12 @@ int main()
     std::ofstream myfile;
     myfile.open("cars.csv");
 
-    for (int i = 0; i < 3000; i++)
-    {
-        std::stringstream ss;
-        ss << distrib_6(gen) << "," << brands[distrib_1(gen)] << manufacturer[distrib_2(gen)] << ",";
-        ss << " Engine volume:" << engine_volume[distrib_4(gen)] << " Engine power:" << engine_power[distrib_5(gen)];
-        ss << " Fuel consumption:" << fuel_consumption[distrib_2(gen)] << " Number of places:" << number_of_places[distrib_10(gen)];
-        ss << " Number of doors" << number_of_doors[distrib_10(gen)] << ",";
-        k = distrib_3(gen);
-        ss << addit_dev[k] << addit_dev[(k+2) % (k+1)] << addit_dev[(k + 3) % (k+1)] << addit_dev[(k + 4) % (k+1)] << ",";
-        ss << colours[distrib_2(gen)] << upholstery[distrib_10(gen)] << ",";
-        ss << "Mileage(km):" << distrib_9(gen) << ",";
-        ss << distrib_9(gen) << "\n";
-        myfile << ss.str();
-    }
-
     std::ofstream myfile2;
     myfile2.open("orders.csv");
     for (int i = 0; i < 2000; i++)
     {
         std::stringstream ss;
-        ss << distrib_6(gen) << "," << distrib_8(gen) << "," << testrive[distrib_10(gen)] << "," << distrib_11(gen) << "/" << distrib_12(gen) << "/2020" << "," << order_status[distrib_3(gen)] << "\n";
+        ss << i << ";"<< distrib_8(gen) << ";" << testrive[distrib_10(gen)] << ";" << distrib_11(gen) << "/" << distrib_12(gen) << "/2020" << ";" << order_status[distrib_3(gen)] << "\n";
         myfile2 << ss.str();
     }
 
@@ -99,12 +84,27 @@ int main()
         std::stringstream ss;
         std::string s1 = FirstName[distrib_13(gen)];
         std::string s2 = LastName[distrib_13(gen)];
-        ss << distrib_7(gen) << "," << s1 << s2 << ",";
-        ss << " Email:" << s1 << "_" << i << "@gmail.com" << " PhoneNumber:" << 8 << " " << 9 << distrib_14(gen) << ",";
-        ss << s1 << s2 << "_" << i << ",";
-        ss << s1 << distrib_8 << ",";
+        ss << i << ";" << "{" << distrib_7(gen) << "," << distrib_7(gen) << "}" << ";" << s1 << s2 << ";";
+        ss << " Email:" << s1 << "_" << i << "@gmail.com" << " PhoneNumber:" << 8 << " " << 9 << distrib_14(gen) << ";";
+        ss << s1 << s2 << "_" << i << ";";
+        ss << s1 << distrib_8 << ";";
         ss << client_status[distrib_15(gen)] << "\n";
         myfile3 << ss.str();
+    }
+
+    for (int i = 0; i < 3000; i++)
+    {
+        std::stringstream ss;
+        ss << i << ";"<< "{"<< distrib_6(gen) << "," << distrib_6(gen) << "}" << ";" << brands[distrib_1(gen)] << ";" << manufacturer[distrib_2(gen)] << ";";
+        ss << " Engine volume:" << engine_volume[distrib_4(gen)] << " Engine power:" << engine_power[distrib_5(gen)];
+        ss << " Fuel consumption:" << fuel_consumption[distrib_2(gen)] << " Number of places:" << number_of_places[distrib_10(gen)];
+        ss << " Number of doors" << number_of_doors[distrib_10(gen)] << ";";
+        k = distrib_3(gen);
+        ss << addit_dev[k] << addit_dev[(k+2) % (k+1)] << addit_dev[(k + 3) % (k+1)] << addit_dev[(k + 4) % (k+1)] << ";";
+        ss << colours[distrib_2(gen)] << upholstery[distrib_10(gen)] << ";";
+        ss << "Mileage(km):" << distrib_9(gen) << ";";
+        ss << distrib_9(gen) << "\n";
+        myfile << ss.str();
     }
 
 }
