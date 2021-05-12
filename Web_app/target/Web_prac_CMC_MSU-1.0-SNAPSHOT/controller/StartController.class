@@ -1,0 +1,31 @@
+package controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+public class StartController {
+
+    @GetMapping(value = "/")
+    public ModelAndView startPage() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("start_page");
+        return modelAndView;
+    }
+
+    @GetMapping(value = "/confirm_form")
+    public ModelAndView confirm_formPage() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("confirm_form");
+        return modelAndView;
+    }
+
+    @GetMapping(value = "/sign_in")
+    public ModelAndView sign_inPage() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("sign_in");
+        return modelAndView;
+    }
+}
