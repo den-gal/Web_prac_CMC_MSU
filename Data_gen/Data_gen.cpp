@@ -84,7 +84,7 @@ int main()
         std::stringstream ss;
         std::string s1 = FirstName[distrib_13(gen)];
         std::string s2 = LastName[distrib_13(gen)];
-        ss << i << ";" << "{" << distrib_7(gen) << "," << distrib_7(gen) << "}" << ";" << s1 << s2 << ";";
+        ss << i << ";" << s1 << s2 << ";";
         ss << " Email:" << s1 << "_" << i << "@gmail.com" << " PhoneNumber:" << 8 << " " << 9 << distrib_14(gen) << ";";
         ss << s1 << s2 << "_" << i << ";";
         ss << s1 << distrib_8 << ";";
@@ -95,7 +95,7 @@ int main()
     for (int i = 0; i < 3000; i++)
     {
         std::stringstream ss;
-        ss << i << ";"<< "{"<< distrib_6(gen) << "," << distrib_6(gen) << "}" << ";" << brands[distrib_1(gen)] << ";" << manufacturer[distrib_2(gen)] << ";";
+        ss << i << ";" << brands[distrib_1(gen)] << ";" << manufacturer[distrib_2(gen)] << ";";
         ss << " Engine volume:" << engine_volume[distrib_4(gen)] << " Engine power:" << engine_power[distrib_5(gen)];
         ss << " Fuel consumption:" << fuel_consumption[distrib_2(gen)] << " Number of places:" << number_of_places[distrib_10(gen)];
         ss << " Number of doors" << number_of_doors[distrib_10(gen)] << ";";

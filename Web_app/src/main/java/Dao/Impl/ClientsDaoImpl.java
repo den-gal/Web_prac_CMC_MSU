@@ -11,7 +11,9 @@ import org.hibernate.query.Query;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class ClientsDaoImpl implements ClientsDao {
     @Override
     public void save(Clients client) {

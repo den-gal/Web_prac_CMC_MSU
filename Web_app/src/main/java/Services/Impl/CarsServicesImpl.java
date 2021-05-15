@@ -2,6 +2,7 @@ package Services.Impl;
 
 import Classes.Cars;
 import Classes.Clients;
+import Classes.Form;
 import Classes.Orders;
 
 import Dao.CarsDao;
@@ -10,7 +11,9 @@ import Dao.Impl.CarsDaoImpl;
 import Services.CarsServices;
 
 import java.util.List;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CarsServicesImpl implements CarsServices {
     CarsDao carsDao = new CarsDaoImpl();
     @Override
@@ -37,6 +40,21 @@ public class CarsServicesImpl implements CarsServices {
     public List<Cars> findCarsByCarNot(String brand, String manufacturer, String technical_not, String addition_devices, String costumer_not, String mutable_not) {
         return carsDao.findCarsByCarNot(brand, manufacturer, technical_not, addition_devices, costumer_not, mutable_not);
     }
+
+    @Override
+    public Form searchDB(){
+        Form form = new Form();
+        List<Cars> cars = carsDao.searchDB();
+        for (Cars car : cars){
+            form.addBrand(car.getBrand());
+            form.addManufacturers(car.getManufacturer());
+            form.addTechnical_notifications(car.getTechnical_not());
+            form.addAdditions_devices(car.getAddition_devices());
+            form.addCostumer_notifications(car.getCostumer_not());
+            form.addMutable_notifications(car.getMutable_not());
+        }
+        return form;
+    };
 
     @Override
     public void changeCarByCarNot(Cars car, String brand, String manufacturer, String technical_not, String addition_devices, String costumer_not, String mutable_not) {

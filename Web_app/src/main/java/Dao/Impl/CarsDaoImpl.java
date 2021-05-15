@@ -1,6 +1,7 @@
 package Dao.Impl;
 
 import Classes.Clients;
+import Classes.Form;
 import Classes.Orders;
 import Dao.CarsDao;
 import Classes.Cars;
@@ -10,7 +11,9 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import java.util.List;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class CarsDaoImpl implements CarsDao {
     @Override
     public void save(Cars car) {
@@ -21,7 +24,7 @@ public class CarsDaoImpl implements CarsDao {
             tx1.commit();
             session.close();
         } catch (Exception e) {
-            System.out.println("CarsSave Exception thrown: " + e.getMessage());
+            //System.out.println("CarsSave Exception thrown: " + e.getMessage());
         }
     }
 
@@ -35,7 +38,7 @@ public class CarsDaoImpl implements CarsDao {
             tx1.commit();
             session.close();
         } catch (Exception e) {
-            System.out.println("CarsDelete exception thrown: " + e.getMessage());
+            //System.out.println("CarsDelete exception thrown: " + e.getMessage());
         }
     }
 
@@ -44,7 +47,7 @@ public class CarsDaoImpl implements CarsDao {
         try {
             return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(Cars.class, id);
         } catch (Exception e) {
-            System.out.println("CarsFindById exception thrown: " + e.getMessage());
+            //System.out.println("CarsFindById exception thrown: " + e.getMessage());
             return null;
         }
     }
@@ -58,7 +61,7 @@ public class CarsDaoImpl implements CarsDao {
             Orders order = query.getResultList().get(0);
             return order;
         } catch (Exception e) {
-            System.out.println("CarsFindOrderByCarId exception thrown: " + e.getMessage());
+            //System.out.println("CarsFindOrderByCarId exception thrown: " + e.getMessage());
             return null;
         }
     }
@@ -366,10 +369,27 @@ public class CarsDaoImpl implements CarsDao {
         return cars;
         }
         catch (Exception e) {
-            System.out.println("findCarsByCarNot exception thrown: " + e.getMessage());
+            //System.out.println("findCarsByCarNot exception thrown: " + e.getMessage());
             return null;
         }
     }
+
+    public List<Cars> searchDB(){
+        Form form = new Form();
+        try {
+            Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+            Transaction tx1 = session.beginTransaction();
+            Query<Cars> query = session.createQuery("From Cars");
+            List<Cars> cars = query.getResultList();
+            tx1.commit();
+            session.close();
+            return cars;
+        }
+        catch (Exception e){
+            return null;
+        }
+    }
+
 
     @Override
     public void changeCarByCarNot(Cars car) {
@@ -381,7 +401,7 @@ public class CarsDaoImpl implements CarsDao {
             session.close();
         }
         catch (Exception e){
-            System.out.println("CarsChangeCarByCarNot exception thrown: " + e.getMessage());
+            //System.out.println("CarsChangeCarByCarNot exception thrown: " + e.getMessage());
         }
     }
 
@@ -389,7 +409,6 @@ public class CarsDaoImpl implements CarsDao {
     public void changeCarsByCarNot(List<Cars> cars) {
         try {
             Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-            //session =  HibernateSessionFactoryUtil.getSessionFactory().getCurrentSession();
             Transaction tx1 = session.beginTransaction();
             for (Cars car : cars){
                 session.update(car);
@@ -398,7 +417,7 @@ public class CarsDaoImpl implements CarsDao {
             session.close();
         }
         catch (Exception e){
-            System.out.println("CarsChangeCarsByCarNot exception thrown: " + e.getMessage());
+            //System.out.println("CarsChangeCarsByCarNot exception thrown: " + e.getMessage());
         }
     }
 
@@ -412,7 +431,7 @@ public class CarsDaoImpl implements CarsDao {
             session.close();
         }
         catch (Exception e){
-            System.out.println("CarsAddClientToCar exception thrown: " + e.getMessage());
+            //System.out.println("CarsAddClientToCar exception thrown: " + e.getMessage());
         }
     }
 
@@ -428,7 +447,7 @@ public class CarsDaoImpl implements CarsDao {
             session.close();
         }
         catch (Exception e){
-            System.out.println("CarsDeleteCars exception thrown: " + e.getMessage());
+            //System.out.println("CarsDeleteCars exception thrown: " + e.getMessage());
         }
     }
 }

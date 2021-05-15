@@ -30,13 +30,13 @@ public class Cars {
 
     public Cars(){}
 
-    public Cars(String brand, String manufacturer, String technical_not, String addition_devices, String costumer_not, String changeble_not, double price) {
+    public Cars(String brand, String manufacturer, String technical_not, String addition_devices, String costumer_not, String mutable_not, double price) {
         this.brand = brand;
         this.manufacturer = manufacturer;
         this.technical_not = technical_not;
         this.addition_devices = addition_devices;
         this.costumer_not = costumer_not;
-        this.mutable_not = changeble_not;
+        this.mutable_not = mutable_not;
         this.price = price;
     }
 

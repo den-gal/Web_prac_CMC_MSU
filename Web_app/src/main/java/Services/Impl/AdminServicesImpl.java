@@ -16,7 +16,9 @@ import Services.OrdersServices;
 
 import java.sql.Date;
 import java.util.List;
+import org.springframework.stereotype.Service;
 
+@Service
 public class AdminServicesImpl implements AdminServices {
     OrdersServices ordersServices = new OrdersServicesImpl();
     ClientsServices clientsServices = new ClientsServicesImpl();

@@ -9,8 +9,9 @@ import Utils.HibernateSessionFactoryUtil;
 import org.hibernate.query.Query;
 
 import java.util.List;
+import org.springframework.stereotype.Repository;
 
-
+@Repository
 public class OrdersDaoImpl implements OrdersDao{
     @Override
     public void save(Orders order) {
