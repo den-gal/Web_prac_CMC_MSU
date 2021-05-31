@@ -12,7 +12,7 @@ public class Clients {
     @Column(name = "client_id", nullable = false, updatable = false)
     private int client_id;
 
-    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Orders> orders = new ArrayList<>();
 
     private String full_name;

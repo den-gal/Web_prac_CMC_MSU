@@ -61,7 +61,6 @@ public class OrdersDaoImpl implements OrdersDao{
             Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
             Orders order = session.get(Orders.class, id);
             session.close();
-            System.out.println(order.getOrder_id());
             return order;
         }
         catch (Exception e){
@@ -73,8 +72,10 @@ public class OrdersDaoImpl implements OrdersDao{
     @Override
     public Cars findCarById(int id) {
         try {
-            Orders order = HibernateSessionFactoryUtil.getSessionFactory().openSession().get(Orders.class, id);
+            Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+            Orders order = session.get(Orders.class, id);
             Cars car = order.getCar_id();
+            session.close();
             return car;
         }
         catch (Exception e){
@@ -126,6 +127,7 @@ public class OrdersDaoImpl implements OrdersDao{
             else{
                 System.out.println("Warning :: FindOrdersByOrderNot has empty attributes");
             }
+            session.close();
             return orders;
         }
         catch (Exception e){

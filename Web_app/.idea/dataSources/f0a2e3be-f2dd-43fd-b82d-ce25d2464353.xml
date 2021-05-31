@@ -53,14 +53,14 @@ false Africa/Blantyre
 false Africa/Brazzaville
 false Africa/Bujumbura
 false Africa/Cairo
-true Africa/Casablanca
+false Africa/Casablanca
 true Africa/Ceuta
 false Africa/Conakry
 false Africa/Dakar
 false Africa/Dar_es_Salaam
 false Africa/Djibouti
 false Africa/Douala
-true Africa/El_Aaiun
+false Africa/El_Aaiun
 false Africa/Freetown
 false Africa/Gaborone
 false Africa/Harare
@@ -807,12 +807,12 @@ false Zulu
 13158||-9223372036854775808|U|G
 13158||10|U|G</Grants>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>2496</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2899</IntrospectionStateNumber>
       <Current>1</Current>
-      <Relations>sequence|table|16695|16697|1
+      <Relations>sequence|table|16744|16746|1
+sequence|table|16695|16697|1
 sequence|table|16726|16728|1
 sequence|table|16711|16713|1
-sequence|table|16648|16650|1
 </Relations>
     </database>
     <database id="3" parent="1" name="postgres">
@@ -882,7 +882,7 @@ sequence|table|16648|16650|1
       <Comment>standard public schema</Comment>
       <StateNumber>287</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>2497</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2900</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <extension id="18" parent="2" name="plpgsql">
@@ -983,9 +983,9 @@ sequence|table|16648|16650|1
       <Type>index</Type>
     </access-method>
     <sequence id="30" parent="17" name="admin_admin_id_seq">
-      <ObjectId>16648</ObjectId>
+      <ObjectId>16744</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>553</StateNumber>
+      <StateNumber>2548</StateNumber>
       <DataType>integer|0s</DataType>
     </sequence>
     <sequence id="31" parent="17" name="cars_reg_id_seq">
@@ -1007,9 +1007,9 @@ sequence|table|16648|16650|1
       <DataType>integer|0s</DataType>
     </sequence>
     <table id="34" parent="17" name="admin">
-      <ObjectId>16650</ObjectId>
+      <ObjectId>16746</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>553</StateNumber>
+      <StateNumber>2548</StateNumber>
     </table>
     <table id="35" parent="17" name="cars">
       <ObjectId>16697</ObjectId>
@@ -1035,25 +1035,43 @@ sequence|table|16648|16650|1
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>553</StateNumber>
+      <StateNumber>2548</StateNumber>
       <DefaultExpression>nextval(&apos;admin_admin_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
     <column id="40" parent="34" name="login">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
-      <StateNumber>553</StateNumber>
+      <StateNumber>2548</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="41" parent="34" name="password">
       <Position>3</Position>
       <DataType>varchar(50)|0s</DataType>
-      <StateNumber>553</StateNumber>
+      <StateNumber>2548</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="42" parent="34" name="admin_pkey">
-      <ObjectId>16654</ObjectId>
-      <StateNumber>553</StateNumber>
+    <column id="42" parent="34" name="number">
+      <Position>4</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>2548</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="43" parent="34" name="function">
+      <Position>5</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>2548</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="44" parent="34" name="function_1">
+      <Position>6</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>2548</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="45" parent="34" name="admin_pkey">
+      <ObjectId>16750</ObjectId>
+      <StateNumber>2548</StateNumber>
       <ColNames>admin_id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
@@ -1061,9 +1079,9 @@ sequence|table|16648|16650|1
       <CollationIds>0</CollationIds>
       <ClassIds>1978</ClassIds>
     </index>
-    <index id="43" parent="34" name="admin_login_key">
-      <ObjectId>16656</ObjectId>
-      <StateNumber>553</StateNumber>
+    <index id="46" parent="34" name="admin_login_key">
+      <ObjectId>16752</ObjectId>
+      <StateNumber>2548</StateNumber>
       <ColNames>login</ColNames>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
@@ -1071,20 +1089,20 @@ sequence|table|16648|16650|1
       <CollationNames>default</CollationNames>
       <ClassIds>3126</ClassIds>
     </index>
-    <key id="44" parent="34" name="admin_pkey">
-      <ObjectId>16655</ObjectId>
-      <StateNumber>553</StateNumber>
+    <key id="47" parent="34" name="admin_pkey">
+      <ObjectId>16751</ObjectId>
+      <StateNumber>2548</StateNumber>
       <ColNames>admin_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>admin_pkey</UnderlyingIndexName>
     </key>
-    <key id="45" parent="34" name="admin_login_key">
-      <ObjectId>16657</ObjectId>
-      <StateNumber>553</StateNumber>
+    <key id="48" parent="34" name="admin_login_key">
+      <ObjectId>16753</ObjectId>
+      <StateNumber>2548</StateNumber>
       <ColNames>login</ColNames>
       <UnderlyingIndexName>admin_login_key</UnderlyingIndexName>
     </key>
-    <column id="46" parent="35" name="reg_id">
+    <column id="49" parent="35" name="reg_id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -1092,51 +1110,51 @@ sequence|table|16648|16650|1
       <DefaultExpression>nextval(&apos;cars_reg_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="47" parent="35" name="brand">
+    <column id="50" parent="35" name="brand">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>787</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="48" parent="35" name="manufacturer">
+    <column id="51" parent="35" name="manufacturer">
       <Position>3</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>787</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="49" parent="35" name="technical_not">
+    <column id="52" parent="35" name="technical_not">
       <Position>4</Position>
       <DataType>text|0s</DataType>
       <StateNumber>787</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="50" parent="35" name="addition_devices">
+    <column id="53" parent="35" name="addition_devices">
       <Position>5</Position>
       <DataType>text|0s</DataType>
       <StateNumber>787</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="51" parent="35" name="costumer_not">
+    <column id="54" parent="35" name="costumer_not">
       <Position>6</Position>
       <DataType>text|0s</DataType>
       <StateNumber>787</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="52" parent="35" name="mutable_not">
+    <column id="55" parent="35" name="mutable_not">
       <Position>7</Position>
       <DataType>text|0s</DataType>
       <StateNumber>787</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="53" parent="35" name="price">
+    <column id="56" parent="35" name="price">
       <Position>8</Position>
       <DataType>numeric|0s</DataType>
       <StateNumber>787</StateNumber>
       <TypeId>1700</TypeId>
     </column>
-    <index id="54" parent="35" name="cars_pkey">
+    <index id="57" parent="35" name="cars_pkey">
       <ObjectId>16705</ObjectId>
       <StateNumber>787</StateNumber>
       <ColNames>reg_id</ColNames>
@@ -1146,32 +1164,32 @@ sequence|table|16648|16650|1
       <CollationIds>0</CollationIds>
       <ClassIds>1978</ClassIds>
     </index>
-    <key id="55" parent="35" name="cars_pkey">
+    <key id="58" parent="35" name="cars_pkey">
       <ObjectId>16706</ObjectId>
       <StateNumber>787</StateNumber>
       <ColNames>reg_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>cars_pkey</UnderlyingIndexName>
     </key>
-    <check id="56" parent="35" name="cars_price_check">
+    <check id="59" parent="35" name="cars_price_check">
       <ObjectId>16701</ObjectId>
       <StateNumber>787</StateNumber>
       <ColNames>price</ColNames>
       <Predicate>price &gt; (0)::numeric</Predicate>
     </check>
-    <column id="57" parent="36" name="reg_id">
+    <column id="60" parent="36" name="reg_id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>787</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="58" parent="36" name="client_id">
+    <column id="61" parent="36" name="client_id">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>787</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="59" parent="37" name="client_id">
+    <column id="62" parent="37" name="client_id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -1179,39 +1197,39 @@ sequence|table|16648|16650|1
       <DefaultExpression>nextval(&apos;clients_client_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="60" parent="37" name="full_name">
+    <column id="63" parent="37" name="full_name">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>843</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="61" parent="37" name="client_inf">
+    <column id="64" parent="37" name="client_inf">
       <Position>3</Position>
       <DataType>text|0s</DataType>
       <StateNumber>843</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="62" parent="37" name="login">
+    <column id="65" parent="37" name="login">
       <Position>4</Position>
       <DataType>varchar(50)|0s</DataType>
       <StateNumber>843</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="63" parent="37" name="password">
+    <column id="66" parent="37" name="password">
       <Position>5</Position>
       <DataType>varchar(50)|0s</DataType>
       <StateNumber>843</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="64" parent="37" name="costumer_status">
+    <column id="67" parent="37" name="costumer_status">
       <Position>6</Position>
       <DataType>varchar(30)|0s</DataType>
       <StateNumber>843</StateNumber>
       <DefaultExpression>&apos;newcomer&apos;::character varying</DefaultExpression>
       <TypeId>1043</TypeId>
     </column>
-    <index id="65" parent="37" name="clients_pkey">
+    <index id="68" parent="37" name="clients_pkey">
       <ObjectId>16737</ObjectId>
       <StateNumber>843</StateNumber>
       <ColNames>client_id</ColNames>
@@ -1221,7 +1239,7 @@ sequence|table|16648|16650|1
       <CollationIds>0</CollationIds>
       <ClassIds>1978</ClassIds>
     </index>
-    <index id="66" parent="37" name="clients_login_key">
+    <index id="69" parent="37" name="clients_login_key">
       <ObjectId>16739</ObjectId>
       <StateNumber>843</StateNumber>
       <ColNames>login</ColNames>
@@ -1231,26 +1249,26 @@ sequence|table|16648|16650|1
       <CollationNames>default</CollationNames>
       <ClassIds>3126</ClassIds>
     </index>
-    <key id="67" parent="37" name="clients_pkey">
+    <key id="70" parent="37" name="clients_pkey">
       <ObjectId>16738</ObjectId>
       <StateNumber>843</StateNumber>
       <ColNames>client_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>clients_pkey</UnderlyingIndexName>
     </key>
-    <key id="68" parent="37" name="clients_login_key">
+    <key id="71" parent="37" name="clients_login_key">
       <ObjectId>16740</ObjectId>
       <StateNumber>843</StateNumber>
       <ColNames>login</ColNames>
       <UnderlyingIndexName>clients_login_key</UnderlyingIndexName>
     </key>
-    <check id="69" parent="37" name="clients_costumer_status_check">
+    <check id="72" parent="37" name="clients_costumer_status_check">
       <ObjectId>16733</ObjectId>
       <StateNumber>843</StateNumber>
       <ColNames>costumer_status</ColNames>
       <Predicate>((costumer_status)::text = &apos;newcomer&apos;::text) OR ((costumer_status)::text = &apos;beginner&apos;::text) OR ((costumer_status)::text = &apos;senior&apos;::text) OR ((costumer_status)::text = &apos;regular&apos;::text) OR ((costumer_status)::text = &apos;master&apos;::text)</Predicate>
     </check>
-    <column id="70" parent="38" name="order_id">
+    <column id="73" parent="38" name="order_id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -1258,38 +1276,38 @@ sequence|table|16648|16650|1
       <DefaultExpression>nextval(&apos;orders_order_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="71" parent="38" name="car_id">
+    <column id="74" parent="38" name="car_id">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>790</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="72" parent="38" name="client">
+    <column id="75" parent="38" name="client">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>790</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="73" parent="38" name="test_drive">
+    <column id="76" parent="38" name="test_drive">
       <Position>4</Position>
       <DataType>boolean|0s</DataType>
       <StateNumber>790</StateNumber>
       <TypeId>16</TypeId>
     </column>
-    <column id="74" parent="38" name="date_of_order">
+    <column id="77" parent="38" name="date_of_order">
       <Position>5</Position>
       <DataType>date|0s</DataType>
       <StateNumber>790</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="75" parent="38" name="status">
+    <column id="78" parent="38" name="status">
       <Position>6</Position>
       <DataType>varchar(30)|0s</DataType>
       <StateNumber>790</StateNumber>
       <DefaultExpression>&apos;new&apos;::character varying</DefaultExpression>
       <TypeId>1043</TypeId>
     </column>
-    <index id="76" parent="38" name="orders_pkey">
+    <index id="79" parent="38" name="orders_pkey">
       <ObjectId>16719</ObjectId>
       <StateNumber>790</StateNumber>
       <ColNames>order_id</ColNames>
@@ -1299,14 +1317,14 @@ sequence|table|16648|16650|1
       <CollationIds>0</CollationIds>
       <ClassIds>1978</ClassIds>
     </index>
-    <key id="77" parent="38" name="orders_pkey">
+    <key id="80" parent="38" name="orders_pkey">
       <ObjectId>16720</ObjectId>
       <StateNumber>790</StateNumber>
       <ColNames>order_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>orders_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="78" parent="38" name="orders_car_id_fkey">
+    <foreign-key id="81" parent="38" name="orders_car_id_fkey">
       <ObjectId>16721</ObjectId>
       <StateNumber>790</StateNumber>
       <ColNames>car_id</ColNames>
@@ -1316,7 +1334,7 @@ sequence|table|16648|16650|1
       <RefKeyName>cars_pkey</RefKeyName>
       <RefColNames>reg_id</RefColNames>
     </foreign-key>
-    <check id="79" parent="38" name="orders_status_check">
+    <check id="82" parent="38" name="orders_status_check">
       <ObjectId>16718</ObjectId>
       <StateNumber>790</StateNumber>
       <ColNames>status</ColNames>

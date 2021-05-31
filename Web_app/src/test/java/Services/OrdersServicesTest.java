@@ -22,10 +22,10 @@ public class OrdersServicesTest extends TestCase {
         ClientsServices clientsServices = new ClientsServicesImpl();
         OrdersServices ordersServices = new OrdersServicesImpl();
 
-        Cars new_car = new Cars("BMW", "China", "V6", "GPS, CrCon", " Red, leather", "None", 1212323);
+        Cars new_car = new Cars("BMW", "China", "V6", "GPS,CrCon", "Red,leather", "None", 1212323);
         carsServices.save(new_car);
 
-        Clients new_client = new Clients("Joe Brainstorm", " 89232322332", " Joe_Brainstorm_2008", "qwerty2021", "newcomer");
+        Clients new_client = new Clients("JoeBrainstorm", "89232322332", "Joe_Brainstorm_2009", "qwerty2021", "newcomer");
         clientsServices.save(new_client);
 
         Orders new_order = new Orders( new_car, new_client,true,  java.sql.Date.valueOf("2020-02-17"), "new");

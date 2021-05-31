@@ -45,6 +45,12 @@ public class CarsServicesImpl implements CarsServices {
     public Form searchDB(){
         Form form = new Form();
         List<Cars> cars = carsDao.searchDB();
+        form.addBrand(null);
+        form.addManufacturers(null);
+        form.addTechnical_notifications(null);
+        form.addAdditions_devices(null);
+        form.addCostumer_notifications(null);
+        form.addMutable_notifications(null);
         for (Cars car : cars){
             form.addBrand(car.getBrand());
             form.addManufacturers(car.getManufacturer());
@@ -111,6 +117,6 @@ public class CarsServicesImpl implements CarsServices {
     @Override
     public void addClientToCar(Cars car, Clients client) {
         car.addClient_id(client);
-        carsDao.addClientToCar(car, client);
+        carsDao.changeCarByCarNot(car);
     }
 }

@@ -11,6 +11,9 @@ public class Admin {
     private int admin_id;
     private String login;
     private String password;
+    private int function;
+    private int function_1;
+    private int number;
 
     public Admin() {};
 
@@ -48,4 +51,29 @@ public class Admin {
                 (this.login.equals(other.login)) &&
                 (this.password.equals(other.password));
     }
+
+    public int getFunction() {
+        return function;
+    }
+
+    public void setFunction(int function) {
+        this.function = function;
+    }
+
+    public int getFunction_1() {
+        return function_1;
+    }
+
+    public void setFunction_1(int function_1) {
+        this.function_1 = function_1;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
 }

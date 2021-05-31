@@ -28,7 +28,10 @@ CREATE TABLE IF NOT EXISTS cars(
 CREATE TABLE IF NOT EXISTS admin(
 	admin_id SERIAL PRIMARY KEY,
 	login varchar(50) UNIQUE,
-	password varchar(50)
+	password varchar(50),
+	number integer,
+	function integer,
+	function_1 integer
 );
 
 CREATE TABLE IF NOT EXISTS cars_clients(

@@ -76,6 +76,6 @@ public class ClientsServicesImpl implements ClientsServices {
     @Override
     public void addOrderToClient(Clients client, Orders order) {
         client.addOrder(order);
-        clientsDao.addOrderToClient(client, order);
+        clientsDao.changeClient(client);
     }
 }

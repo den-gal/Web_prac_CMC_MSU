@@ -27,7 +27,7 @@ public class AdminServicesTest extends TestCase {
         Admin admin_check = adminServices.authorizeAdmin("Admin001", "qwertyAd001232");
         Assert.assertEquals(new_admin, admin_check);
 
-       adminServices.delete(new_admin);
+        adminServices.delete(new_admin);
     }
 
     @Test

@@ -1,6 +1,5 @@
 package Dao.Impl;
 
-import Classes.Clients;
 import Classes.Form;
 import Classes.Orders;
 import Dao.CarsDao;
@@ -45,7 +44,10 @@ public class CarsDaoImpl implements CarsDao {
     @Override
     public Cars findById(int id) {
         try {
-            return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(Cars.class, id);
+            Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+            Cars car = session.get(Cars.class, id);
+            session.close();
+            return car;
         } catch (Exception e) {
             //System.out.println("CarsFindById exception thrown: " + e.getMessage());
             return null;
@@ -59,6 +61,7 @@ public class CarsDaoImpl implements CarsDao {
             Cars car = session.get(Cars.class, id);
             Query<Orders> query = session.createQuery("From Orders WHERE car_id = :param").setParameter("param", car);
             Orders order = query.getResultList().get(0);
+            session.close();
             return order;
         } catch (Exception e) {
             //System.out.println("CarsFindOrderByCarId exception thrown: " + e.getMessage());
@@ -132,7 +135,7 @@ public class CarsDaoImpl implements CarsDao {
                             cars =query.getResultList();
                         }
                         else {
-                            Query<Cars> query = session.createQuery("From Cars WHERE (brand = :param) and (manufacturer = :param1) and (mutable_not = :param5)").setParameter("param", brand).setParameter("param1", manufacturer).setParameter("param5", mutable_not);
+                            Query<Cars> query = session.createQuery("From Cars WHERE (brand = :param) and (manufacturer = :param1) and (costumer_not = :param4)").setParameter("param", brand).setParameter("param1", manufacturer).setParameter("param4", costumer_not);
                             cars =query.getResultList();
                         }
                     }
@@ -418,20 +421,6 @@ public class CarsDaoImpl implements CarsDao {
         }
         catch (Exception e){
             //System.out.println("CarsChangeCarsByCarNot exception thrown: " + e.getMessage());
-        }
-    }
-
-    @Override
-    public void addClientToCar(Cars car, Clients client) {
-        try {
-            Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-            Transaction tx1 = session.beginTransaction();
-            session.update(car);
-            tx1.commit();
-            session.close();
-        }
-        catch (Exception e){
-            //System.out.println("CarsAddClientToCar exception thrown: " + e.getMessage());
         }
     }
 

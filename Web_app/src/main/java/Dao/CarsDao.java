@@ -22,6 +22,4 @@ public interface CarsDao {
     void changeCarsByCarNot(List<Cars> cars);
 
     void deleteCars(List<Cars> cars);
-
-    void addClientToCar(Cars car, Clients client);
 }

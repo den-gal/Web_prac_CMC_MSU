@@ -16,6 +16,4 @@ public interface ClientsDao {
     List<Clients> findClientsByOrderNot(List<Orders> orders);
 
     void changeClient(Clients client);
-
-    void addOrderToClient(Clients client, Orders order);
 }

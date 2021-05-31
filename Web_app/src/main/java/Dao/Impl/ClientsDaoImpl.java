@@ -46,7 +46,10 @@ public class ClientsDaoImpl implements ClientsDao {
     @Override
     public Clients findById(int id) {
         try {
-            return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(Clients.class, id);
+            Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+            Clients client = session.get(Clients.class, id);
+            session.close();
+            return client;
         }
         catch (Exception e){
             System.out.println("ClientsFindById exception thrown: " + e.getMessage());
@@ -60,6 +63,9 @@ public class ClientsDaoImpl implements ClientsDao {
                 Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
                 Query<Clients> query = session.createQuery("From Clients WHERE login = :param").setParameter("param", login);
                 List<Clients> clients = query.getResultList();
+                session.close();
+                if (clients.isEmpty())
+                    return null;
             try{
                 Clients client = clients.get(0);
                 if(client.getPassword().equals(password))
@@ -87,6 +93,7 @@ public class ClientsDaoImpl implements ClientsDao {
         try {
             Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
             Clients client = session.get(Clients.class, id);
+            session.close();
             return client.getOrders();
         }
         catch(Exception e){
@@ -102,6 +109,7 @@ public class ClientsDaoImpl implements ClientsDao {
             Query<Clients> query = session.createQuery("From Clients");
             List<Clients> clients1 = query.getResultList();
             List<Clients> clients = new ArrayList<>();
+            session.close();
             for (Orders order : orders)
                 for (Clients client : clients1)
                     for (Orders order1 : client.getOrders())
@@ -130,17 +138,4 @@ public class ClientsDaoImpl implements ClientsDao {
         }
     }
 
-    @Override
-    public void addOrderToClient(Clients client, Orders order) {
-        try {
-            Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-            Transaction tx1 = session.beginTransaction();
-            session.update(client);
-            tx1.commit();
-            session.close();
-        }
-        catch (Exception e){
-            System.out.println("ClientsAddOrderToClient exception thrown: " + e.getMessage());
-        }
-    }
 }

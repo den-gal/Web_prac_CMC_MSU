@@ -19,7 +19,7 @@ public class ClientsServicesTest extends TestCase {
     public void testSaveClient() {
         ClientsServices clientsServices = new ClientsServicesImpl();
 
-        Clients new_client = new Clients("Joe Brainstorm", " 89232322332", " Joe_Brainstorm_2002", "qwerty2021", "newcomer");
+        Clients new_client = new Clients("Joe Brainstorm", "89232322332", "Joe_Brainstorm_2010", "qwerty2021", "newcomer");
         clientsServices.save(new_client);
 
         Clients client_check = clientsServices.findById(new_client.getClient_id());
